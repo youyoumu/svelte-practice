@@ -59,6 +59,8 @@
 <p>{numbers.join(' + ')} = {sum}</p>
 {#if sum % 2 === 0}
 	<p>sum is even</p>
+{:else}
+	<p>sum is odd</p>
 {/if}
 <button on:click={addNumbers}>Add</button>
 <p>{numbersObj.a}</p>
