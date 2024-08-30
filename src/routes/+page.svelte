@@ -5,6 +5,8 @@
 	import { getRandomNumber } from './utils.js';
 	import Inner from './Inner.svelte';
 	import Outer from './Outer.svelte';
+	import { paint } from './gradient.js';
+	import { onMount } from 'svelte';
 
 	let name = 'youyoumu';
 	const src =
@@ -125,7 +127,21 @@
 
 	const formatter = new Intl.ListFormat('en', { style: 'long', type: 'conjunction' });
 	$: console.log(scoops, flavours);
+
+	onMount(() => {
+		const canvas = document.querySelector('canvas');
+		const context = canvas.getContext('2d');
+
+		let frame = requestAnimationFrame(function loop(t) {
+			frame = requestAnimationFrame(loop);
+			paint(context, t);
+		});
+
+		return () => cancelAnimationFrame(frame);
+	});
 </script>
+
+<canvas width={32} height={32}></canvas>
 
 <h2>Size</h2>
 
@@ -276,6 +292,18 @@
 </div>
 
 <style>
+	canvas {
+		position: fixed;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		background-color: #666;
+		mask: url(./svelte-logo-mask.svg) 50% 50% no-repeat;
+		mask-size: 60vmin;
+		-webkit-mask: url(./svelte-logo-mask.svg) 50% 50% no-repeat;
+		-webkit-mask-size: 60vmin;
+	}
 	p {
 		color: red;
 		font-size: 1.5rem;
