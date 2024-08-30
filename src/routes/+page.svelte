@@ -3,6 +3,7 @@
 	import Nested from './Nested.svelte';
 	import Thing from './Thing.svelte';
 	import { getRandomNumber } from './utils.js';
+	import Inner from './Inner.svelte';
 
 	let name = 'youyoumu';
 	const src =
@@ -83,7 +84,13 @@
 		m.y = event.clientY;
 		handleMoveCount += 1;
 	}
+
+	function handleMessage(event) {
+		alert(event.detail.text);
+	}
 </script>
+
+<Inner on:message={handleMessage} />
 
 <button on:click|once={() => alert('clicked')}> Click me </button>
 
