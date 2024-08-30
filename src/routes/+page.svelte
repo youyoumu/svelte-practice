@@ -53,6 +53,7 @@
 <p>a: {a}</p>
 <button on:click={addNumbersObj}>Add</button>
 <Nested name={'test' + sum} />
+<Nested />
 
 <div style="display:none;">
 	<h1>Hello {name.toUpperCase()}!</h1>
