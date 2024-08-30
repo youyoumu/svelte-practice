@@ -7,7 +7,7 @@
 	import Outer from './Outer.svelte';
 	import { paint } from './gradient.js';
 	import { onMount } from 'svelte';
-	import { time, elapsed, count } from './stores.js';
+	import { time, elapsed, count, name3, greeting } from './stores.js';
 
 	let name = 'youyoumu';
 	const src =
@@ -148,6 +148,11 @@
 		second: '2-digit'
 	});
 </script>
+
+<h1>{$greeting}</h1>
+<input bind:value={$name3} />
+
+<button on:click={() => ($name3 += '!')}> Add exclamation mark! </button>
 
 <h1>The count is {$count}</h1>
 
