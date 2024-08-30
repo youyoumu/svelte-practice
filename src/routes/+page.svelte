@@ -46,7 +46,7 @@
 		a: 1
 	};
 
-	let a = numbersObj.a;
+	// let a = numbersObj.a;
 
 	function addNumbersObj() {
 		numbersObj.a = numbersObj.a + 1;
@@ -91,7 +91,22 @@
 	}
 
 	let name2 = 'world';
+
+	let a = 1;
+	let b = 2;
 </script>
+
+<label>
+	<input type="number" bind:value={a} min="0" max="10" />
+	<input type="range" bind:value={a} min="0" max="10" />
+</label>
+
+<label>
+	<input type="number" bind:value={b} min="0" max="10" />
+	<input type="range" bind:value={b} min="0" max="10" />
+</label>
+
+<p>{a} + {b} = {a + b}</p>
 
 <input bind:value={name2} />
 <h1>Hello {name2}!</h1>
