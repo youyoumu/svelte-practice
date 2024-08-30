@@ -1,4 +1,6 @@
 <script>
+	import PackageInfo from './PackageInfo.svelte';
+
 	import Nested from './Nested.svelte';
 	let name = 'youyoumu';
 	const src =
@@ -45,6 +47,13 @@
 	function addNumbersObj() {
 		numbersObj.a = numbersObj.a + 1;
 	}
+
+	const pkg = {
+		name: 'svelte',
+		speed: 'blazing',
+		version: 4,
+		website: 'https://svelte.dev'
+	};
 </script>
 
 <p>{numbers.join(' + ')} = {sum}</p>
@@ -54,6 +63,7 @@
 <button on:click={addNumbersObj}>Add</button>
 <Nested name={'test' + sum} />
 <Nested />
+<PackageInfo {...pkg} />
 
 <div style="display:none;">
 	<h1>Hello {name.toUpperCase()}!</h1>
