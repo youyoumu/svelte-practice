@@ -1,7 +1,8 @@
 <script>
 	import PackageInfo from './PackageInfo.svelte';
-
 	import Nested from './Nested.svelte';
+	import Thing from './Thing.svelte';
+
 	let name = 'youyoumu';
 	const src =
 		'https://avatars.githubusercontent.com/u/19760884?s=400&u=6762f1be1dfc466fc31654873d46722d40537392&v=4';
@@ -54,7 +55,25 @@
 		version: 4,
 		website: 'https://svelte.dev'
 	};
+
+	let things = [
+		{ id: 1, name: 'apple' },
+		{ id: 2, name: 'banana' },
+		{ id: 3, name: 'carrot' },
+		{ id: 4, name: 'doughnut' },
+		{ id: 5, name: 'egg' }
+	];
+
+	function handleClick() {
+		things = things.slice(1);
+	}
 </script>
+
+<button on:click={handleClick}> Remove first thing </button>
+
+{#each things as thing (thing.id)}
+	<Thing name={thing.name} />
+{/each}
 
 {#each numbers as n, i}
 	<span>{n}{i},</span>
