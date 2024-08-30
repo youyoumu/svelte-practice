@@ -56,6 +56,10 @@
 	};
 </script>
 
+{#each numbers as n, i}
+	<span>{n}{i},</span>
+{/each}
+
 <p>{numbers.join(' + ')} = {sum}</p>
 {#if sum % 2 === 0}
 	<p>sum is even</p>
