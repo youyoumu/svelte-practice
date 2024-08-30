@@ -85,6 +85,8 @@
 	}
 </script>
 
+<button on:click|once={() => alert('clicked')}> Click me </button>
+
 <div
 	on:pointermove={(event) => {
 		m.x = event.clientX;
