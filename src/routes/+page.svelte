@@ -7,7 +7,7 @@
 	import Outer from './Outer.svelte';
 	import { paint } from './gradient.js';
 	import { onMount } from 'svelte';
-	import { time } from './stores.js';
+	import { time, elapsed } from './stores.js';
 
 	let name = 'youyoumu';
 	const src =
@@ -149,6 +149,11 @@
 	});
 </script>
 
+<p>
+	This page has been open for
+	{$elapsed}
+	{$elapsed === 1 ? 'second' : 'seconds'}
+</p>
 <h1>The time is {formatter2.format($time)}</h1>
 
 <canvas width={32} height={32}></canvas>
