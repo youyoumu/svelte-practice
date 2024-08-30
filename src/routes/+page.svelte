@@ -7,6 +7,7 @@
 	import Outer from './Outer.svelte';
 	import { paint } from './gradient.js';
 	import { onMount } from 'svelte';
+	import { time } from './stores.js';
 
 	let name = 'youyoumu';
 	const src =
@@ -139,7 +140,16 @@
 
 		return () => cancelAnimationFrame(frame);
 	});
+
+	const formatter2 = new Intl.DateTimeFormat('en', {
+		hour12: true,
+		hour: 'numeric',
+		minute: '2-digit',
+		second: '2-digit'
+	});
 </script>
+
+<h1>The time is {formatter2.format($time)}</h1>
 
 <canvas width={32} height={32}></canvas>
 
