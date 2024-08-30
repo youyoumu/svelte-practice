@@ -85,7 +85,13 @@
 	}
 </script>
 
-<div on:pointermove={handleMove}>
+<div
+	on:pointermove={(event) => {
+		m.x = event.clientX;
+		m.y = event.clientY;
+		handleMoveCount += 1;
+	}}
+>
 	The pointer is at {m.x} x {m.y}
 	<p>handleMoveCount: {handleMoveCount}</p>
 </div>
