@@ -22,26 +22,57 @@
 	$: if (count % 2 === 0) {
 		console.log('count is even');
 	}
+
+	let numbers = [1, 2, 3, 4, 5];
+
+	function addNumbers() {
+		// numbers.push(numbers.length + 1);
+		// numbers = numbers;
+
+		// numbers = [...numbers, numbers.length + 1];
+
+		numbers[numbers.length] = numbers.length + 1;
+	}
+
+	$: sum = numbers.reduce((acc, n) => acc + n, 0);
+
+	let numbersObj = {
+		a: 1
+	};
+
+	let a = numbersObj.a;
+
+	function addNumbersObj() {
+		numbersObj.a = numbersObj.a + 1;
+	}
 </script>
 
-<h1>Hello {name.toUpperCase()}!</h1>
-<img {src} alt="profile" />
-<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium atque odit ducimus!</p>
-<Nested />
-<p>
-	{string}
-</p>
-<p>
-	{@html string}
-</p>
-<button on:click={increment}>
-	clicked {count}
-	{count === 1 ? 'time' : 'times'}
-</button>
-<p>doubled: {doubled}</p>
-<p>tripled: {tripled}</p>
-<p>quadrupled: {count * 4}</p>
-<p>doubledTimes5: {doubledTimes5}</p>
+<p>{numbers.join(' + ')} = {sum}</p>
+<button on:click={addNumbers}>Add</button>
+<p>{numbersObj.a}</p>
+<p>a: {a}</p>
+<button on:click={addNumbersObj}>Add</button>
+
+<div style="display:none;">
+	<h1>Hello {name.toUpperCase()}!</h1>
+	<img {src} alt="profile" />
+	<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium atque odit ducimus!</p>
+	<Nested />
+	<p>
+		{string}
+	</p>
+	<p>
+		{@html string}
+	</p>
+	<button on:click={increment}>
+		clicked {count}
+		{count === 1 ? 'time' : 'times'}
+	</button>
+	<p>doubled: {doubled}</p>
+	<p>tripled: {tripled}</p>
+	<p>quadrupled: {count * 4}</p>
+	<p>doubledTimes5: {doubledTimes5}</p>
+</div>
 
 <style>
 	p {
