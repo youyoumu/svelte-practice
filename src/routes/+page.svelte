@@ -59,6 +59,8 @@
 <p>{numbers.join(' + ')} = {sum}</p>
 {#if sum % 2 === 0}
 	<p>sum is even</p>
+{:else if sum % 3 === 0}
+	<p>sum is multiple of 3</p>
 {:else}
 	<p>sum is odd</p>
 {/if}
