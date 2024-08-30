@@ -3,12 +3,17 @@
 	let name = 'youyoumu';
 	const src =
 		'https://avatars.githubusercontent.com/u/19760884?s=400&u=6762f1be1dfc466fc31654873d46722d40537392&v=4';
-	let string = `asdasd asdasdasd asdasdasd asdasda <strong>HTML!!<strong/>`;
-	let count = 0;
+	let string = `asdasd asdasdasd asdasdasd asdasda <strong>HTML!!</strong>`;
+	let count = 4;
 
 	function increment() {
 		count += 1;
 	}
+
+	let doubled = 1;
+	$: doubled = count * 2;
+	let tripled = count * 3;
+	const doubledTimes5 = doubled * 5;
 </script>
 
 <h1>Hello {name.toUpperCase()}!</h1>
@@ -25,6 +30,10 @@
 	clicked {count}
 	{count === 1 ? 'time' : 'times'}
 </button>
+<p>doubled: {doubled}</p>
+<p>tripled: {tripled}</p>
+<p>quadrupled: {count * 4}</p>
+<p>doubledTimes5: {doubledTimes5}</p>
 
 <style>
 	p {
