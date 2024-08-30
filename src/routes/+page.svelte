@@ -4,6 +4,11 @@
 	const src =
 		'https://avatars.githubusercontent.com/u/19760884?s=400&u=6762f1be1dfc466fc31654873d46722d40537392&v=4';
 	let string = `asdasd asdasdasd asdasdasd asdasda <strong>HTML!!<strong/>`;
+	let count = 0;
+
+	function increment() {
+		count += 1;
+	}
 </script>
 
 <h1>Hello {name.toUpperCase()}!</h1>
@@ -16,6 +21,10 @@
 <p>
 	{@html string}
 </p>
+<button on:click={increment}>
+	clicked {count}
+	{count === 1 ? 'time' : 'times'}
+</button>
 
 <style>
 	p {
