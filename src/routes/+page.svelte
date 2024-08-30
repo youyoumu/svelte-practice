@@ -2,6 +2,7 @@
 	import PackageInfo from './PackageInfo.svelte';
 	import Nested from './Nested.svelte';
 	import Thing from './Thing.svelte';
+	import { getRandomNumber } from './utils.js';
 
 	let name = 'youyoumu';
 	const src =
@@ -67,7 +68,21 @@
 	function handleClick() {
 		things = things.slice(1);
 	}
+
+	let promise = getRandomNumber();
+
+	function handleClick2() {
+		promise = getRandomNumber();
+	}
 </script>
+
+<button on:click={handleClick2}> generate random number </button>
+
+{#await promise}
+	<p>loading</p>
+{:then number}
+	<p>{number}</p>
+{/await}
 
 <button on:click={handleClick}> Remove first thing </button>
 
