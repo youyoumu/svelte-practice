@@ -14,6 +14,14 @@
 	$: doubled = count * 2;
 	let tripled = count * 3;
 	const doubledTimes5 = doubled * 5;
+	$: {
+		console.log(count);
+		console.log('wow');
+	}
+
+	$: if (count % 2 === 0) {
+		console.log('count is even');
+	}
 </script>
 
 <h1>Hello {name.toUpperCase()}!</h1>
