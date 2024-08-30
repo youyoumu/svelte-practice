@@ -7,13 +7,13 @@
 	import Outer from './Outer.svelte';
 	import { paint } from './gradient.js';
 	import { onMount } from 'svelte';
-	import { time, elapsed } from './stores.js';
+	import { time, elapsed, count } from './stores.js';
 
 	let name = 'youyoumu';
 	const src =
 		'https://avatars.githubusercontent.com/u/19760884?s=400&u=6762f1be1dfc466fc31654873d46722d40537392&v=4';
 	let string = `asdasd asdasdasd asdasdasd asdasda <strong>HTML!!</strong>`;
-	let count = 4;
+	let count2 = 4;
 
 	function increment() {
 		count += 1;
@@ -148,6 +148,12 @@
 		second: '2-digit'
 	});
 </script>
+
+<h1>The count is {$count}</h1>
+
+<button on:click={count.increment}>+</button>
+<button on:click={count.decrement}>-</button>
+<button on:click={count.reset}>reset</button>
 
 <p>
 	This page has been open for
@@ -308,9 +314,6 @@
 
 <style>
 	canvas {
-		position: fixed;
-		left: 0;
-		top: 0;
 		width: 100%;
 		height: 100%;
 		background-color: #666;
