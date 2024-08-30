@@ -6,3 +6,11 @@
 
 <h1>Hello {name.toUpperCase()}!</h1>
 <img {src} alt="profile" />
+<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium atque odit ducimus!</p>
+
+<style>
+	p {
+		color: red;
+		font-size: 2rem;
+	}
+</style>
