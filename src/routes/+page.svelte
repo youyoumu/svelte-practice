@@ -89,7 +89,12 @@
 	function handleMessage(event) {
 		alert(event.detail.text);
 	}
+
+	let name2 = 'world';
 </script>
+
+<input bind:value={name2} />
+<h1>Hello {name2}!</h1>
 
 <Outer on:message={handleMessage} />
 <Inner on:message={handleMessage} />
